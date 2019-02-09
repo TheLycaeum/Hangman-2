@@ -18,3 +18,7 @@ def get_secret_word(word_file="/usr/share/dict/words"):
 
 def mask_line(word):
     return "*"*len(word)
+
+def tries_left(i):
+    return 10 - i
+
