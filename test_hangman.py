@@ -18,5 +18,6 @@ def test_secret_word_no_proper_nouns():
 def test_mask():
     assert hangman.mask_line("properties") == "**********"
 
-
-
+def test_tries_left():
+    assert hangman.tries_left(6) == 4
+    
