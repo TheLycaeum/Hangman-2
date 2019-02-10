@@ -20,8 +20,8 @@ def test_mask():
 
 def test_tries_left():
     assert hangman.tries_left(6) == 4
-    
+
 def test_guess_letter():
-    assert guess_letter("properties", "p","**********") == "p**p******"
-    assert guess_letter("properties", "p","*ro*e***e*") == "prope***e*"
-    assert guess_letter("properties", "n","**********") == False
+    assert hangman.guess_letter("properties", "p","**********") == "p**p******"
+    assert hangman.guess_letter("properties", "p","*ro*e***e*") == "prope***e*"
+    assert hangman.guess_letter("properties", "n","**********") == False
