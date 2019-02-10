@@ -30,14 +30,14 @@ def guess_letter(word,letter,mask_line):
         for i in word:
             if i == letter:
                 mask_line = mask_line[0:x] + letter + mask_line[x+1:]
-            x = x + 1 
+            x = x + 1
         return mask_line
     else:
         return False
 
 game = True
 word = get_secret_word()
-print(word)
+#print(word)
 mask = mask_line(word)
 x = 1
 max_guess = 10
@@ -47,7 +47,7 @@ while game:
     print(f"No: of guesses left {tries_left(x)}\n\n")
     letter = input("Your guess : ").lower()
     if letter in guesses:
-        print("already guessed : {guesses} ")        
+        print("already guessed : {guesses} ")
         continue
     guess = guess_letter(word,letter,mask)
     if guess == False:
@@ -66,9 +66,9 @@ while game:
         if x >= 10:
             print(f"Sorry, 10 guesses over, the word was : {word}")
             game = False
-        
-    
-        
-    
-    
-    
+
+
+
+
+
+
