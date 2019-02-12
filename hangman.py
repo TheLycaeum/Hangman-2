@@ -25,7 +25,21 @@ def tries_left(tri):
     return 10 - tri
 
 
+def mask_word(word, guesses):
+    letters = list(word)
+    for i in letters:
+        if i not in guesses:
+            word = word.replace(i, '*')
+    return word
+
+
+# NKV: This is too complex to understand
 def guess_letter(word, letter, mask_line):
+    """
+    word is the the secret_word (e.g. elephant)
+    letter is the guessed letter( e.g. e)
+    mask_line is the word masked depending on the guesses so far
+    """
     if letter in word:
         x = 0
         for i in word:
@@ -38,16 +52,16 @@ def guess_letter(word, letter, mask_line):
 
 
 def play():
-    game = True
+    game = True #NKV Boolean Flags are code smells (I've removed it)
     word = get_secret_word()
     mask = mask_line(word)
-    x = 1
+    x = 1 # NKV If this is for turns, call it turns_left or current_turn
     guesses = []
-    while game:
+    while True: #
         print(mask, end="\n\n")
-        print("Number of guesses left {}\n\n".format(tries_left(x)))
-        letter = input("Your guess : ").lower()
-        if letter in guesses:
+        print("Number of guessePs left {}\n\n".format(tries_left(x))) # NKV: Printing status (move it to a function)
+        letter = input("Your guess : ").lower() 
+        if letter in guesses:  # NKV: This is the job of guess_letter. 
             print("already guessed : {} ".format(guesses))
             continue
         guess = guess_letter(word, letter, mask)
@@ -59,13 +73,13 @@ def play():
             mask = guess
             print(mask)
         if mask == word:
-            game = False
             print("Congrats, you won !!! word was {}".format(word))
+            break
         else:
             print("guesses: {sorted(guesses)}\n\n".format(guesses=guesses))
             if x >= 10:
                 print("Sorry, 10 guesses over, the word was : {word}".format(word=word))
-                game = False
+                break
 
 
 def loop_play():

@@ -21,16 +21,20 @@ def test_mask():
 def test_tries_left():
     assert hangman.tries_left(6) == 4
 
-# def test_mark2():
-#     test_word = "elephant"
-#     assert hangman.mask_word(test_word, []) == "********"
-#     assert hangman.mask_word(test_word, ['e']) == "e*e*****"
-#     assert hangman.mask_word(test_word, ['e','a']) == "e*e**a**"
-#     assert hangman.mask_word(test_word, ['e','a','x']) == "e*e**a**"
-#     assert hangman.mask_word(test_word, ['e','a','q','e']) == "e*e**a**"
-#     assert hangman.mask_word(test_word, ['e','l','p','h','a','n','t']) == "elephant'
+def test_mark2():
+    test_word = "elephant"
+    assert hangman.mask_word(test_word, []) == "********"
+    assert hangman.mask_word(test_word, ['e']) == "e*e*****"
+    assert hangman.mask_word(test_word, ['e','a']) == "e*e**a**"
+    assert hangman.mask_word(test_word, ['e','a','x']) == "e*e**a**"
+    assert hangman.mask_word(test_word, ['e','a','q','e']) == "e*e**a**"
+    assert hangman.mask_word(test_word, ['e','l','p','h','a','n','t']) == "elephant"
 
 def test_guess_letter():
     assert hangman.guess_letter("properties", "p","**********") == "p**p******"
     assert hangman.guess_letter("properties", "p","*ro*e***e*") == "prope***e*"
     assert hangman.guess_letter("properties", "n","**********") == False
+
+
+
+
