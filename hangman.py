@@ -91,5 +91,5 @@ def loop_play():
             loop = False
             print("Exiting.")
 
-
-loop_play()
+if __name__ == "__main__":
+    loop_play()
