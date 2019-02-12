@@ -45,10 +45,10 @@ def play():
     guesses = []
     while game:
         print(mask, end="\n\n")
-        print(f"Number of guesses left {tries_left(x)}\n\n")
+        print("Number of guesses left {}\n\n".format(tries_left(x)))
         letter = input("Your guess : ").lower()
         if letter in guesses:
-            print(f"already guessed : {guesses} ")
+            print("already guessed : {} ".format(guesses))
             continue
         guess = guess_letter(word, letter, mask)
         if guess == False:
@@ -60,11 +60,11 @@ def play():
             print(mask)
         if mask == word:
             game = False
-            print(f"Congrats, you won !!! word was {word}")
+            print("Congrats, you won !!! word was {}".format(word))
         else:
-            print(f"guesses: {sorted(guesses)}\n\n")
+            print("guesses: {sorted(guesses)}\n\n".format(guesses=guesses))
             if x >= 10:
-                print(f"Sorry, 10 guesses over, the word was : {word}")
+                print("Sorry, 10 guesses over, the word was : {word}".format(word=word))
                 game = False
 
 
